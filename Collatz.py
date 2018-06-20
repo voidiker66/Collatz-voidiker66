@@ -71,7 +71,7 @@ def collatz_eval (i: int, j: int) -> int :
         j = temp
     
     # if diff < 1000, cant use known_cache_1000
-    if (j-1 < 1000):
+    if (j-i < 1000):
         return getMaxCycleLength(i, j)
 
     start = int(i/1000)
@@ -81,10 +81,12 @@ def collatz_eval (i: int, j: int) -> int :
     high_bound = getMaxCycleLength(int(end*1000), j)
 
     known_bound = 0
-    while start != end:
-        if known_cache_1000[start] > known_bound:
-            known_bound = known_cache_1000[start]
-        start += 1
+    start += 1
+    if start < end:
+        while start != end:
+            if known_cache_1000[start] > known_bound:
+                known_bound = known_cache_1000[start]
+            start += 1
 
     if low_bound >= high_bound:
         if low_bound >= known_bound:

@@ -1,7 +1,4 @@
-with open("RunCollatz.in", 'w') as f:
-	x = 0
-	y = 999
-	while x != 1000000:
-		f.write(str(x) + " " + str(y) + "\n")
-		x += 1000
-		y += 1000
+from random import randint
+
+with open("uint_test.py", 'w') as f:
+	f.write("from io       import StringIO\nfrom unittest import main, TestCase\nfrom Collatz import collatz_read, collatz_eval, collatz_print, collatz_solve\n\n")
