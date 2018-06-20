@@ -1,0 +1,13 @@
+before_script:
+    - date
+    - uname -a
+    - printenv | sort
+
+collatz:
+    image: gpdowning/python
+    script:
+    - ls -al
+    - cat makefile
+    - make versions
+    - make clean
+    - make run
