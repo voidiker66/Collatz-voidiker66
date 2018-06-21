@@ -28,7 +28,7 @@ RunCollatz.pyx: Collatz.py RunCollatz.py .pylintrc
 	-mypy   RunCollatz.py
 	-pylint RunCollatz.py
 	./RunCollatz.py < RunCollatz.in > RunCollatz.tmp
-	-diff RunCollatz.tmp RunCollatz.out
+	-fc RunCollatz.tmp RunCollatz.out
 
 TestCollatz.pyx: Collatz.py TestCollatz.py .pylintrc
 	-mypy     Collatz.py

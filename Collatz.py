@@ -50,6 +50,8 @@ def get_cycles(i: int):
     """
     gets the cycle length of a single integer i
     """
+    assert i > 0
+    global CACHE
     # if in CACHE, we already know the answer
     if i in CACHE:
         return CACHE[i]

@@ -48,7 +48,7 @@ class TestCollatz(TestCase):
         MCL for the range provided
         """
         result = collatz_eval(1, 10)
-        self.assertEqual(result, 11)
+        self.assertEqual(result, 20)
 
     def test_eval_2(self):
         """
@@ -56,7 +56,7 @@ class TestCollatz(TestCase):
         MCL for the range provided
         """
         result = collatz_eval(100, 200)
-        self.assertEqual(result, 300)
+        self.assertEqual(result, 125)
 
     def test_eval_3(self):
         """
@@ -64,7 +64,7 @@ class TestCollatz(TestCase):
         MCL for the range provided
         """
         result = collatz_eval(201, 210)
-        self.assertEqual(result, 411)
+        self.assertEqual(result, 89)
 
     def test_eval_4(self):
         """
@@ -72,23 +72,23 @@ class TestCollatz(TestCase):
         MCL for the range provided
         """
         result = collatz_eval(900, 1000)
-        self.assertEqual(result, 1900)
+        self.assertEqual(result, 174)
 
     def test_eval_5(self):
         """
         tests if eval returns the correct
         MCL for the range provided
         """
-        result = collatz_eval(29323, 460708)
-        self.assertEqual(result, 449)
+        result = collatz_eval(1, 1)
+        self.assertEqual(result, 1)
 
     def test_eval_6(self):
         """
         tests if eval returns the correct
         MCL for the range provided
         """
-        result = collatz_eval(732335, 714332)
-        self.assertEqual(result, 411)
+        result = collatz_eval(1, 2)
+        self.assertEqual(result, 2)
 
     def test_eval_7(self):
         """
@@ -112,7 +112,31 @@ class TestCollatz(TestCase):
         MCL for the range provided
         """
         result = collatz_eval(1, 1000000)
-        self.assertEqual(result, 1900)
+        self.assertEqual(result, 525)
+
+    def test_eval_10(self):
+        """
+        tests if eval returns the correct
+        MCL for the range provided
+        """
+        result = collatz_eval(3001, 4001)
+        self.assertEqual(result, 238)
+
+    def test_eval_11(self):
+        """
+        tests if eval returns the correct
+        MCL for the range provided
+        """
+        result = collatz_eval(9040, 1040)
+        self.assertEqual(result, 262)
+
+    def test_eval_12(self):
+        """
+        tests if eval returns the correct
+        MCL for the range provided
+        """
+        result = collatz_eval(1, 3999)
+        self.assertEqual(result, 238)
 
     # -----
     # print
@@ -139,7 +163,7 @@ class TestCollatz(TestCase):
         write = StringIO()
         collatz_solve(read, write)
         self.assertEqual(write.getvalue(),
-                         "1 10 11\n100 200 300\n201 210 411\n900 1000 1900\n")
+                         "1 10 20\n100 200 125\n201 210 89\n900 1000 174\n")
 
 # ----
 # main
