@@ -17,5 +17,5 @@ from Collatz import collatz_solve
 # main
 # ----
 
-if __name__ == "__main__" :
+if __name__ == "__main__":
     collatz_solve(stdin, stdout)
