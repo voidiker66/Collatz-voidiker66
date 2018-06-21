@@ -17,7 +17,7 @@ collatz-tests:
 	git clone git@gitlab.com:gpdowning/cs373-collatz-tests.git
 
 Collatz.html: Collatz.py
-	-pydoc -w Collatz
+	-python -m pydoc -w Collatz
 
 Collatz.log:
 	git log > Collatz.log
