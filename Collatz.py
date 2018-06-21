@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 # ------------------
 # collatz/Collatz.py
@@ -19,11 +19,13 @@ from known_cache import known_cache_1000
 # collatz_read
 # ------------
 
+
 def collatz_read(string: str) -> List[int]:
     """
     read two ints
     string a string
-    return a list of two ints, representing the beginning and end of a range, [i, j]
+    return a list of two ints, representing the
+    beginning and end of a range, [i, j]
     """
     array_ouput = string.split()
     return [int(array_ouput[0]), int(array_ouput[1])]
@@ -43,6 +45,7 @@ CACHE = {}
 # if odd, multiply by three and add one
 # if one, return one
 
+
 def get_cycles(i: int):
     """
     gets the cycle length of a single integer i
@@ -60,6 +63,7 @@ def get_cycles(i: int):
     CACHE[i] = int(get_cycles(int((i*3)+1)) + 1)
     return CACHE[i]
 
+
 def get_max_cycle_length(start: int, end: int):
     """
     gets the max cycle length between
@@ -75,6 +79,7 @@ def get_max_cycle_length(start: int, end: int):
             res = temp
 
     return res
+
 
 def collatz_eval(i: int, j: int) -> int:
     """
@@ -132,12 +137,10 @@ def collatz_eval(i: int, j: int) -> int:
         return high_bound
     return known_bound
 
-
-
-
 # -------------
 # collatz_print
 # -------------
+
 
 def collatz_print(write: IO[str], start: int, end: int, result: int) -> None:
     """
@@ -153,12 +156,15 @@ def collatz_print(write: IO[str], start: int, end: int, result: int) -> None:
 # collatz_solve
 # -------------
 
+
 def collatz_solve(read: IO[str], write: IO[str]) -> None:
     """
-    r a reader
-    w a writer
+    read a reader
+    write a writer
     """
     for input_array in read:
         start, end = collatz_read(input_array)
+        assert(start > 0 and start <= 1000000)
+        assert(end > 0 and end <= 1000000)
         result = collatz_eval(start, end)
         collatz_print(write, start, end, result)

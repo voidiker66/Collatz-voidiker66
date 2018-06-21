@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 # ----------------------
 # collatz/TestCollatz.py
@@ -10,7 +10,7 @@
 # imports
 # -------
 
-from io       import StringIO
+from io import StringIO
 from unittest import main, TestCase
 
 from Collatz import collatz_read, collatz_eval, collatz_print, collatz_solve
@@ -19,59 +19,132 @@ from Collatz import collatz_read, collatz_eval, collatz_print, collatz_solve
 # TestCollatz
 # -----------
 
-class TestCollatz (TestCase) :
+
+class TestCollatz(TestCase):
+    """
+    Testing class for this assignment
+    """
     # ----
     # read
     # ----
 
-    def test_read (self) :
-        s    = "1 10\n"
-        i, j = collatz_read(s)
-        self.assertEqual(i,  1)
-        self.assertEqual(j, 10)
+    def test_read(self):
+        """
+        tests the collatz_read function
+        returns two ints from string
+        """
+        input_var = "1 10\n"
+        start, end = collatz_read(input_var)
+        self.assertEqual(start, 1)
+        self.assertEqual(end, 10)
 
     # ----
     # eval
     # ----
 
-    def test_eval_1 (self) :
-        v = collatz_eval(1, 10)
-        self.assertEqual(v, 11)
+    def test_eval_1(self):
+        """
+        tests if eval returns the correct
+        MCL for the range provided
+        """
+        result = collatz_eval(1, 10)
+        self.assertEqual(result, 11)
 
-    def test_eval_2 (self) :
-        v = collatz_eval(100, 200)
-        self.assertEqual(v, 300)
+    def test_eval_2(self):
+        """
+        tests if eval returns the correct
+        MCL for the range provided
+        """
+        result = collatz_eval(100, 200)
+        self.assertEqual(result, 300)
 
-    def test_eval_3 (self) :
-        v = collatz_eval(201, 210)
-        self.assertEqual(v, 411)
+    def test_eval_3(self):
+        """
+        tests if eval returns the correct
+        MCL for the range provided
+        """
+        result = collatz_eval(201, 210)
+        self.assertEqual(result, 411)
 
-    def test_eval_4 (self) :
-        v = collatz_eval(900, 1000)
-        self.assertEqual(v, 1900)
+    def test_eval_4(self):
+        """
+        tests if eval returns the correct
+        MCL for the range provided
+        """
+        result = collatz_eval(900, 1000)
+        self.assertEqual(result, 1900)
+
+    def test_eval_5(self):
+        """
+        tests if eval returns the correct
+        MCL for the range provided
+        """
+        result = collatz_eval(29323, 460708)
+        self.assertEqual(result, 449)
+
+    def test_eval_6(self):
+        """
+        tests if eval returns the correct
+        MCL for the range provided
+        """
+        result = collatz_eval(732335, 714332)
+        self.assertEqual(result, 411)
+
+    def test_eval_7(self):
+        """
+        tests if eval returns the correct
+        MCL for the range provided
+        """
+        result = collatz_eval(54310, 533814)
+        self.assertEqual(result, 470)
+
+    def test_eval_8(self):
+        """
+        tests if eval returns the correct
+        MCL for the range provided
+        """
+        result = collatz_eval(253809, 70626)
+        self.assertEqual(result, 443)
+
+    def test_eval_9(self):
+        """
+        tests if eval returns the correct
+        MCL for the range provided
+        """
+        result = collatz_eval(1, 1000000)
+        self.assertEqual(result, 1900)
 
     # -----
     # print
     # -----
 
-    def test_print (self) :
-        w = StringIO()
-        collatz_print(w, 1, 10, 20)
-        self.assertEqual(w.getvalue(), "1 10 20\n")
+    def test_print(self):
+        """
+        tests the print function
+        important for diff check
+        """
+        write = StringIO()
+        collatz_print(write, 1, 10, 20)
+        self.assertEqual(write.getvalue(), "1 10 20\n")
 
     # -----
     # solve
     # -----
 
-    def test_solve (self) :
-        r = StringIO("1 10\n100 200\n201 210\n900 1000\n")
-        w = StringIO()
-        collatz_solve(r, w)
-        self.assertEqual(w.getvalue(), "1 10 11\n100 200 300\n201 210 411\n900 1000 1900\n")
+    def test_solve(self):
+        """
+        tests if I can solve multiple inputs in order
+        """
+        read = StringIO("1 10\n100 200\n201 210\n900 1000\n")
+        write = StringIO()
+        collatz_solve(read, write)
+        self.assertEqual(write.getvalue(),
+                         "1 10 11\n100 200 300\n201 210 411\n900 1000 1900\n")
 
 # ----
 # main
 # ----
 
-if __name__ == "__main__" : #pragma: no cover
+if __name__ == "__main__":
+    # pragma: no cover
     main()

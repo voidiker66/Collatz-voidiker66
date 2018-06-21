@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 # ---------------------
 # collatz/RunCollatz.py
@@ -10,7 +10,7 @@
 # imports
 # -------
 
-from sys     import stdin, stdout
+from sys import stdin, stdout
 from Collatz import collatz_solve
 
 # ----
